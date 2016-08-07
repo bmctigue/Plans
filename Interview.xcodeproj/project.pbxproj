@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A82B7DEE1D57B3AA00F087E4 /* PlansFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82B7DED1D57B3AA00F087E4 /* PlansFetcher.swift */; };
 		A83FA5301D4ADFDF0042FACC /* PlannableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83FA52F1D4ADFDF0042FACC /* PlannableProtocol.swift */; };
 		A8999D9A1D4BA54900B561A3 /* PlannableProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8999D991D4BA54900B561A3 /* PlannableProtocolTests.swift */; };
 		A8D5FDCF1D500F6E00E02F78 /* PlansTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D5FDCE1D500F6E00E02F78 /* PlansTableViewController.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A82B7DED1D57B3AA00F087E4 /* PlansFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlansFetcher.swift; sourceTree = "<group>"; };
 		A83FA52F1D4ADFDF0042FACC /* PlannableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PlannableProtocol.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A8999D991D4BA54900B561A3 /* PlannableProtocolTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PlannableProtocolTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A8D5FDCE1D500F6E00E02F78 /* PlansTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PlansTableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -222,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				AFED56D11D491F470095C0C0 /* Plan.swift */,
+				A82B7DED1D57B3AA00F087E4 /* PlansFetcher.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				A8F755121D4BEE7400E5D875 /* PlanCell.swift in Sources */,
 				A83FA5301D4ADFDF0042FACC /* PlannableProtocol.swift in Sources */,
 				A8F755141D4C063800E5D875 /* PresentModalAnimationController.swift in Sources */,
+				A82B7DEE1D57B3AA00F087E4 /* PlansFetcher.swift in Sources */,
 				AFED56CF1D491F0D0095C0C0 /* Transform+Dictionary.swift in Sources */,
 				AFED56C91D491F0D0095C0C0 /* Mappable.swift in Sources */,
 				A8D5FDD11D500F8B00E02F78 /* ModalViewController.swift in Sources */,

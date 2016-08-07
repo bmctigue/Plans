@@ -8,8 +8,6 @@
 
 import Foundation
 
-let planNotificationKey = "com.tiguer.plansLoadedNotificationKey"
-let plansUrl = "https://api.myjson.com/bins/5431j"
 let planPricingRegion = 2
 
 struct Plan: Mappable {
@@ -55,50 +53,5 @@ struct Plans: Mappable {
 
     init(map: Mapper) throws {
         try plans = map.from("plans")
-    }
-}
-
-final class PlansFetcher: Plannable {
-
-    static let sharedInstance = PlansFetcher()
-    private init() {}
-
-    struct FetcherPlans {
-        private(set) static var plans:[Plan] = []
-        private(set) static var sortedPlansByAmount:[Plan] = []
-    }
-
-    func downloadPlans() {
-        let planUrl = NSURL(string:plansUrl)
-
-        // Creaste URL Request
-        let request = NSMutableURLRequest(URL:planUrl!)
-        request.HTTPMethod = "GET"
-
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
-            data, response, error in
-
-            // Check for error
-            if error != nil {
-                print("error=\(error)")
-                return
-            }
-            do {
-                if let jsonArray = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSArray {
-                    let plansHash = ["plans":jsonArray]
-                    if let plans = Plans.from(plansHash) {
-                        FetcherPlans.plans = self.updatePlansWithAmount(plans.plans, region: planPricingRegion)
-                        FetcherPlans.sortedPlansByAmount = self.sortedPlansByAmount(FetcherPlans.plans)
-                        dispatch_async(dispatch_get_main_queue(), {
-                            let notification = NSNotification(name: planNotificationKey, object: nil)
-                            NSNotificationCenter.defaultCenter().postNotification(notification)
-                        })
-                    }
-                }
-            } catch let error as NSError {
-                print(error.localizedDescription)
-            }
-        }
-        task.resume()
     }
 }

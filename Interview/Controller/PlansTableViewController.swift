@@ -39,11 +39,11 @@ class PlansTableViewController: UITableViewController, Plannable, PlanCellDelega
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        PlansFetcher.sharedInstance.downloadPlans()
+        PlansFetcher.sharedInstance.downloadPlans(plansUrlString)
     }
 
     func handleRefresh(refreshControl: UIRefreshControl) {
-        PlansFetcher.sharedInstance.downloadPlans()
+        PlansFetcher.sharedInstance.downloadPlans(plansUrlString)
         refreshControl.endRefreshing()
     }
 
@@ -69,8 +69,9 @@ class PlansTableViewController: UITableViewController, Plannable, PlanCellDelega
     }
 
     func stepperButtonPressed(stepper: UIStepper, plan:Plan) {
-        plansCountHash = updatePlanSelection(Int(stepper.value), plan: plan, plansCountHash:plansCountHash)
-        titleLabel.text = self.tableTitleFromPlans(sortedPlansByAmount(PlansFetcher.FetcherPlans.sortedPlansByAmount), plansCountHash: plansCountHash)
+        plansCountHash = updatePlanSelection(Int(stepper.value), planName: plan.name, plansCountHash:plansCountHash)
+        let sortedPlanNamesByAmount = PlansFetcher.FetcherPlans.sortedPlansByAmount.map({$0.name})
+        titleLabel.text = self.tableTitleFromPlanNames(sortedPlanNamesByAmount, plansCountHash: plansCountHash)
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

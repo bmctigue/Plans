@@ -34,23 +34,20 @@ extension Plannable {
         return plans
     }
 
-    func updatePlanSelection(stepperValue: Int, plan:Plan, plansCountHash:[String:Int]) -> [String:Int] {
+    func updatePlanSelection(stepperValue: Int, planName: String, plansCountHash: [String:Int]) -> [String:Int] {
         var plansCountHash:[String:Int] = plansCountHash
-        let planKey = plan.name
         if stepperValue == 0 {
-            plansCountHash.removeValueForKey(planKey)
+            plansCountHash.removeValueForKey(planName)
         } else {
-            plansCountHash[planKey] = stepperValue
+            plansCountHash[planName] = stepperValue
         }
         return plansCountHash
     }
 
-    func tableTitleFromPlans(plans: [Plan], plansCountHash:[String:Int]) -> String {
-        var key:String
+    func tableTitleFromPlanNames(planNames: [String], plansCountHash: [String:Int]) -> String {
         var countStringArray: [String] = []
         var planString: String
-        for plan in plans {
-            key = plan.name
+        for key in planNames {
             if let planCount = plansCountHash[key] {
                 planString = planCount == 1 ? "Plan" : "Plans"
                 countStringArray.append("\(planCount) \(key) \(planString)")
