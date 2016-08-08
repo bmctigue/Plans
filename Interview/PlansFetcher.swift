@@ -43,14 +43,9 @@ final class PlansFetcher: Plannable {
     func downloadPlans(planUrlString: String) {
         let task = NSURLSession.sharedSession().dataTaskWithRequest(planRequest(planUrlString, method: "GET")) {
             data, response, error in
-
-            // Check for error
-            if error != nil {
-                print("error=\(error)")
-                return
-            }
+            guard let data = data else { print(error?.localizedDescription); return }
             do {
-                if let jsonArray = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSArray {
+                if let jsonArray = try NSJSONSerialization.JSONObjectWithData(data, options: []) as? NSArray {
                     let json = ["plans":jsonArray]
                     self.processJson(json)
                 }
