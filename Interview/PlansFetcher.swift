@@ -10,6 +10,7 @@ import Foundation
 
 let planNotificationKey = "com.tiguer.plansLoadedNotificationKey"
 let plansUrlString = "https://api.myjson.com/bins/5431j"
+let planPricingRegion = 2
 
 final class PlansFetcher: Plannable {
 

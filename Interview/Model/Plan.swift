@@ -8,8 +8,6 @@
 
 import Foundation
 
-let planPricingRegion = 2
-
 struct Plan: Mappable {
     let id: Int
     let name: String
