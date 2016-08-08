@@ -62,10 +62,14 @@ class PlansTableViewController: UITableViewController, Plannable, PlanCellDelega
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:PlanCell = tableView.dequeueReusableCellWithIdentifier("PlanCell", forIndexPath: indexPath) as! PlanCell
-        let plan = plans[indexPath.row]
         cell.delegate = self
-        cell.updateCellWithPlan(plan)
         return cell
+    }
+
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        let cell:PlanCell = cell as! PlanCell
+        let plan = plans[indexPath.row]
+        cell.updateCellWithPlan(plan)
     }
 
     func stepperButtonPressed(stepper: UIStepper, plan:Plan) {
