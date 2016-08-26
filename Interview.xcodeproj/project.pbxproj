@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A82B7DEE1D57B3AA00F087E4 /* PlansFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82B7DED1D57B3AA00F087E4 /* PlansFetcher.swift */; };
+		A82B7DEE1D57B3AA00F087E4 /* StateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82B7DED1D57B3AA00F087E4 /* StateController.swift */; };
 		A83FA5301D4ADFDF0042FACC /* PlannableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83FA52F1D4ADFDF0042FACC /* PlannableProtocol.swift */; };
+		A86232851D70EFAB00A0067D /* PlansTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86232841D70EFAB00A0067D /* PlansTableViewDelegate.swift */; };
 		A8999D9A1D4BA54900B561A3 /* PlannableProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8999D991D4BA54900B561A3 /* PlannableProtocolTests.swift */; };
+		A8B764AA1D70EAEB008E29FC /* PlansTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B764A91D70EAEB008E29FC /* PlansTransitioningDelegate.swift */; };
 		A8D5FDCF1D500F6E00E02F78 /* PlansTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D5FDCE1D500F6E00E02F78 /* PlansTableViewController.swift */; };
 		A8D5FDD11D500F8B00E02F78 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D5FDD01D500F8B00E02F78 /* ModalViewController.swift */; };
+		A8EB5E411D70DFA3006D81CD /* PlansTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8EB5E401D70DFA3006D81CD /* PlansTableViewDataSource.swift */; };
 		A8F755121D4BEE7400E5D875 /* PlanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F755111D4BEE7400E5D875 /* PlanCell.swift */; };
 		A8F755141D4C063800E5D875 /* PresentModalAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F755131D4C063800E5D875 /* PresentModalAnimationController.swift */; };
 		A8F755161D4C156F00E5D875 /* DismissModalAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F755151D4C156F00E5D875 /* DismissModalAnimationController.swift */; };
@@ -50,11 +53,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A82B7DED1D57B3AA00F087E4 /* PlansFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlansFetcher.swift; sourceTree = "<group>"; };
+		A82B7DED1D57B3AA00F087E4 /* StateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateController.swift; sourceTree = "<group>"; };
 		A83FA52F1D4ADFDF0042FACC /* PlannableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PlannableProtocol.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		A86232841D70EFAB00A0067D /* PlansTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlansTableViewDelegate.swift; sourceTree = "<group>"; };
 		A8999D991D4BA54900B561A3 /* PlannableProtocolTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PlannableProtocolTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		A8B764A91D70EAEB008E29FC /* PlansTransitioningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlansTransitioningDelegate.swift; sourceTree = "<group>"; };
 		A8D5FDCE1D500F6E00E02F78 /* PlansTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PlansTableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A8D5FDD01D500F8B00E02F78 /* ModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
+		A8EB5E401D70DFA3006D81CD /* PlansTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlansTableViewDataSource.swift; sourceTree = "<group>"; };
 		A8F755111D4BEE7400E5D875 /* PlanCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PlanCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A8F755131D4C063800E5D875 /* PresentModalAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PresentModalAnimationController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A8F755151D4C156F00E5D875 /* DismissModalAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DismissModalAnimationController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -113,6 +119,9 @@
 				A8D5FDCE1D500F6E00E02F78 /* PlansTableViewController.swift */,
 				A8F755131D4C063800E5D875 /* PresentModalAnimationController.swift */,
 				A8F755151D4C156F00E5D875 /* DismissModalAnimationController.swift */,
+				A8EB5E401D70DFA3006D81CD /* PlansTableViewDataSource.swift */,
+				A8B764A91D70EAEB008E29FC /* PlansTransitioningDelegate.swift */,
+				A86232841D70EFAB00A0067D /* PlansTableViewDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -224,7 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				AFED56D11D491F470095C0C0 /* Plan.swift */,
-				A82B7DED1D57B3AA00F087E4 /* PlansFetcher.swift */,
+				A82B7DED1D57B3AA00F087E4 /* StateController.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -379,9 +388,10 @@
 			files = (
 				A8D5FDCF1D500F6E00E02F78 /* PlansTableViewController.swift in Sources */,
 				A8F755121D4BEE7400E5D875 /* PlanCell.swift in Sources */,
+				A8B764AA1D70EAEB008E29FC /* PlansTransitioningDelegate.swift in Sources */,
 				A83FA5301D4ADFDF0042FACC /* PlannableProtocol.swift in Sources */,
 				A8F755141D4C063800E5D875 /* PresentModalAnimationController.swift in Sources */,
-				A82B7DEE1D57B3AA00F087E4 /* PlansFetcher.swift in Sources */,
+				A82B7DEE1D57B3AA00F087E4 /* StateController.swift in Sources */,
 				AFED56CF1D491F0D0095C0C0 /* Transform+Dictionary.swift in Sources */,
 				AFED56C91D491F0D0095C0C0 /* Mappable.swift in Sources */,
 				A8D5FDD11D500F8B00E02F78 /* ModalViewController.swift in Sources */,
@@ -391,9 +401,11 @@
 				AFC2DB181C2F1AAA0091B27F /* AppDelegate.swift in Sources */,
 				AFED56CA1D491F0D0095C0C0 /* Mapper.swift in Sources */,
 				AFED56D21D491F470095C0C0 /* Plan.swift in Sources */,
+				A8EB5E411D70DFA3006D81CD /* PlansTableViewDataSource.swift in Sources */,
 				AFED56CB1D491F0D0095C0C0 /* MapperError.swift in Sources */,
 				AFED56CD1D491F0D0095C0C0 /* NSURL+Convertible.swift in Sources */,
 				AFED56C71D491F0D0095C0C0 /* Convertible.swift in Sources */,
+				A86232851D70EFAB00A0067D /* PlansTableViewDelegate.swift in Sources */,
 				A8F755161D4C156F00E5D875 /* DismissModalAnimationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

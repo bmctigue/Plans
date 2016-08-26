@@ -8,14 +8,13 @@
 
 import UIKit
 
-class PlansTableViewController: UITableViewController, Plannable, PlanCellDelegate, ModalDelegate, UIViewControllerTransitioningDelegate {
+class PlansTableViewController: UITableViewController, Plannable, ModalDelegate {
 
     @IBOutlet weak var titleLabel: UILabel!
 
-    var plans:[Plan] = []
-    var plansCountHash: [String:Int] = [:]
-    let presentModalAnimationController = PresentModalAnimationController()
-    let dismissModalAnimationController = DismissModalAnimationController()
+    var tableViewDataSource: PlansTableViewDataSource?
+    var tableViewDelegate: PlansTableViewDelegate?
+    var plansTransitioningDelegate: PlansTransitioningDelegate?
     var toViewController: ModalViewController = ModalViewController()
     let alphaView: UIView = UIView()
 
@@ -26,6 +25,10 @@ class PlansTableViewController: UITableViewController, Plannable, PlanCellDelega
         self.refreshControl?.addTarget(self, action: #selector(PlansTableViewController.handleRefresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
 
         addAlphaView()
+
+        self.tableViewDataSource = PlansTableViewDataSource(tableView: tableView, titleLabel: titleLabel)
+        self.tableViewDelegate = PlansTableViewDelegate(tableView: tableView)
+        self.plansTransitioningDelegate = PlansTransitioningDelegate()
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(PlansTableViewController.plansLoaded(_:)), name: planNotificationKey, object: nil)
     }
@@ -39,50 +42,23 @@ class PlansTableViewController: UITableViewController, Plannable, PlanCellDelega
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        PlansFetcher.sharedInstance.downloadPlans(plansUrlString)
+        StateController.sharedInstance.downloadPlans(plansUrlString)
     }
 
     func handleRefresh(refreshControl: UIRefreshControl) {
-        PlansFetcher.sharedInstance.downloadPlans(plansUrlString)
+        StateController.sharedInstance.downloadPlans(plansUrlString)
         refreshControl.endRefreshing()
     }
 
     func plansLoaded(notification:NSNotification) {
-        plans = PlansFetcher.FetcherPlans.plans
         self.tableView.reloadData()
-    }
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return plans.count
-    }
-
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell:PlanCell = tableView.dequeueReusableCellWithIdentifier("PlanCell", forIndexPath: indexPath) as! PlanCell
-        cell.delegate = self
-        return cell
-    }
-
-    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        let cell:PlanCell = cell as! PlanCell
-        let plan = plans[indexPath.row]
-        cell.updateCellWithPlan(plan)
-    }
-
-    func stepperButtonPressed(stepper: UIStepper, plan:Plan) {
-        plansCountHash = updatePlanSelection(Int(stepper.value), planName: plan.name, plansCountHash:plansCountHash)
-        let sortedPlanNamesByAmount = PlansFetcher.FetcherPlans.sortedPlansByAmount.map({$0.name})
-        titleLabel.text = self.tableTitleFromPlanNames(sortedPlanNamesByAmount, plansCountHash: plansCountHash)
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showModal" {
             toViewController = segue.destinationViewController as! ModalViewController
             toViewController.delegate = self
-            toViewController.transitioningDelegate = self
+            toViewController.transitioningDelegate = plansTransitioningDelegate
             UIView.animateWithDuration(0.5, animations: {
                 self.alphaView.alpha = 0.4
             })
@@ -94,14 +70,6 @@ class PlansTableViewController: UITableViewController, Plannable, PlanCellDelega
             self.alphaView.alpha = 0.0
         })
         toViewController.dismissViewControllerAnimated(true, completion: nil)
-    }
-
-    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return presentModalAnimationController
-    }
-
-    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return dismissModalAnimationController
     }
 
     deinit {

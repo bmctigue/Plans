@@ -9,7 +9,7 @@
 import UIKit
 
 protocol PlanCellDelegate: class {
-    func stepperButtonPressed(stepper: UIStepper, plan:Plan)
+    func stepperButtonPressed(stepper: UIStepper, planName:String)
 }
 
 class PlanCell: UITableViewCell {
@@ -29,7 +29,7 @@ class PlanCell: UITableViewCell {
 
     @IBAction func stepperPressed(sender: AnyObject) {
         let stepper = sender as! UIStepper
-        delegate?.stepperButtonPressed(stepper, plan: plan!)
+        delegate?.stepperButtonPressed(stepper, planName: plan!.name)
     }
 
 }

@@ -12,14 +12,14 @@ let planNotificationKey = "com.tiguer.plansLoadedNotificationKey"
 let plansUrlString = "https://api.myjson.com/bins/5431j"
 let planPricingRegion = 2
 
-final class PlansFetcher: Plannable {
+final class StateController: Plannable {
 
-    static let sharedInstance = PlansFetcher()
+    static let sharedInstance = StateController()
     private init() {}
 
-    struct FetcherPlans {
-        private(set) static var plans:[Plan] = []
-        private(set) static var sortedPlansByAmount:[Plan] = []
+    struct Items {
+        private(set) static var all:[Plan] = []
+        private(set) static var sortedByAmount:[Plan] = []
     }
 
     func planRequest(planUrlString: String, method: String) -> NSURLRequest {
@@ -31,8 +31,8 @@ final class PlansFetcher: Plannable {
 
     func processJson(json: Dictionary<String,NSArray>) {
         if let plans = Plans.from(json) {
-            FetcherPlans.plans = updatePlansWithAmount(plans.plans, region: planPricingRegion)
-            FetcherPlans.sortedPlansByAmount = sortedPlansByAmount(FetcherPlans.plans)
+            Items.all = updatePlansWithAmount(plans.plans, region: planPricingRegion)
+            Items.sortedByAmount = sortedPlansByAmount(Items.all)
             let notification = NSNotification(name: planNotificationKey, object: nil)
             dispatch_async(dispatch_get_main_queue(), {
                 NSNotificationCenter.defaultCenter().postNotification(notification)
