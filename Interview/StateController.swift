@@ -1,5 +1,5 @@
 //
-//  PlansFetcher.swift
+//  StateController.swift
 //  Interview
 //
 //  Created by NoDeveloper on 7/27/16.
@@ -12,7 +12,7 @@ let planNotificationKey = "com.tiguer.plansLoadedNotificationKey"
 let plansUrlString = "https://api.myjson.com/bins/5431j"
 let planPricingRegion = 2
 
-final class StateController: Plannable {
+final class StateController: Plannable, DownloadServicesDelegate {
 
     static let sharedInstance = StateController()
     private init() {}
@@ -20,13 +20,6 @@ final class StateController: Plannable {
     struct Items {
         private(set) static var all:[Plan] = []
         private(set) static var sortedByAmount:[Plan] = []
-    }
-
-    func planRequest(planUrlString: String, method: String) -> NSURLRequest {
-        let planUrl = NSURL(string:planUrlString)
-        let request = NSMutableURLRequest(URL:planUrl!)
-        request.HTTPMethod = method
-        return request
     }
 
     func processJson(json: Dictionary<String,NSArray>) {
@@ -41,18 +34,12 @@ final class StateController: Plannable {
     }
 
     func downloadPlans(planUrlString: String) {
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(planRequest(planUrlString, method: "GET")) {
-            data, response, error in
-            guard let data = data else { print(error?.localizedDescription); return }
-            do {
-                if let jsonArray = try NSJSONSerialization.JSONObjectWithData(data, options: []) as? NSArray {
-                    let json = ["plans":jsonArray]
-                    self.processJson(json)
-                }
-            } catch let error as NSError {
-                print(error.localizedDescription)
-            }
-        }
-        task.resume()
+        let downloadServices = DownloadServices(delegate: self)
+        downloadServices.downloadWithUrl(plansUrlString, method: "GET")
+    }
+
+    func downLoadFinished(jsonArray: NSArray) {
+        let json = ["plans":jsonArray]
+        self.processJson(json)
     }
 }

@@ -2,8 +2,8 @@
 //  PlansTransitioningDelegate.swift
 //  Interview
 //
-//  Created by Bruce McTigue on 8/26/16.
-//  Copyright © 2016 Clutter. All rights reserved.
+//  Created by NoDeveloper on 8/26/16.
+//  Copyright © 2016 NoCompany. All rights reserved.
 //
 
 import UIKit
