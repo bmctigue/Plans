@@ -27,9 +27,7 @@ final class StateController: Plannable, DownloadServicesDelegate {
             Items.all = updatePlansWithAmount(plans.plans, region: planPricingRegion)
             Items.sortedByAmount = sortedPlansByAmount(Items.all)
             let notification = NSNotification(name: planNotificationKey, object: nil)
-            dispatch_async(dispatch_get_main_queue(), {
-                NSNotificationCenter.defaultCenter().postNotification(notification)
-            })
+            NSNotificationCenter.defaultCenter().postNotification(notification)
         }
     }
 

@@ -51,7 +51,9 @@ class PlansTableViewController: UITableViewController, Plannable, ModalDelegate 
     }
 
     func plansLoaded(notification:NSNotification) {
-        self.tableView.reloadData()
+        dispatch_async(dispatch_get_main_queue(), {
+            self.tableView.reloadData()
+        })
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
