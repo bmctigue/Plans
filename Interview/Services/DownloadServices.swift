@@ -14,7 +14,7 @@ protocol DownloadServicesDelegate {
 
 final class DownloadServices: NSObject {
 
-    let delegate: DownloadServicesDelegate
+    let delegate: DownloadServicesDelegate?
 
     init(delegate: DownloadServicesDelegate) {
         self.delegate = delegate
@@ -33,9 +33,7 @@ final class DownloadServices: NSObject {
             guard let data = data else { print(error?.localizedDescription); return }
             do {
                 if let jsonArray = try NSJSONSerialization.JSONObjectWithData(data, options: []) as? NSArray {
-                    if let delegate: DownloadServicesDelegate = self.delegate {
-                        delegate.downLoadFinished(jsonArray)
-                    }
+                    self.delegate?.downLoadFinished(jsonArray)
                 }
             } catch let error as NSError {
                 print(error.localizedDescription)
