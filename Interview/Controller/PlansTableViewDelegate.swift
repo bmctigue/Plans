@@ -23,5 +23,4 @@ extension PlansTableViewDelegate: UITableViewDelegate {
         let plan = StateController.Items.all[indexPath.row]
         cell.updateCellWithPlan(plan)
     }
-
 }
