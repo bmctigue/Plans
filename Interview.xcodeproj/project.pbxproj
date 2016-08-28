@@ -122,8 +122,8 @@
 				A8F755131D4C063800E5D875 /* PresentModalAnimationController.swift */,
 				A8F755151D4C156F00E5D875 /* DismissModalAnimationController.swift */,
 				A8EB5E401D70DFA3006D81CD /* PlansTableViewDataSource.swift */,
-				A8B764A91D70EAEB008E29FC /* PlansTransitioningDelegate.swift */,
 				A86232841D70EFAB00A0067D /* PlansTableViewDelegate.swift */,
+				A8B764A91D70EAEB008E29FC /* PlansTransitioningDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
