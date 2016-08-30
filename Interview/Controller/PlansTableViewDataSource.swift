@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PlansTableViewDataSource: NSObject {
+class PlansTableViewDataSource: NSObject, PlanCellDelegate {
 
     let titleLabel: UILabel
     var plansCountHash: [String:Int] = [:]
@@ -18,9 +18,15 @@ class PlansTableViewDataSource: NSObject {
         super.init()
         tableView.dataSource = self
     }
+
+    func stepperButtonPressed(stepper: UIStepper, planName:String) {
+        plansCountHash = updatePlanSelection(Int(stepper.value), planName: planName, plansCountHash:plansCountHash)
+        let sortedPlanNamesByAmount = StateController.Items.sortedByAmount.map({$0.name})
+        titleLabel.text = self.tableTitleFromPlanNames(sortedPlanNamesByAmount, plansCountHash: plansCountHash)
+    }
 }
 
-extension PlansTableViewDataSource: UITableViewDataSource, PlanCellDelegate, Plannable {
+extension PlansTableViewDataSource: UITableViewDataSource, Plannable {
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -36,9 +42,4 @@ extension PlansTableViewDataSource: UITableViewDataSource, PlanCellDelegate, Pla
         return cell
     }
 
-    func stepperButtonPressed(stepper: UIStepper, planName:String) {
-        plansCountHash = updatePlanSelection(Int(stepper.value), planName: planName, plansCountHash:plansCountHash)
-        let sortedPlanNamesByAmount = StateController.Items.sortedByAmount.map({$0.name})
-        titleLabel.text = self.tableTitleFromPlanNames(sortedPlanNamesByAmount, plansCountHash: plansCountHash)
-    }
 }
