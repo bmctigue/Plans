@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A83FA5301D4ADFDF0042FACC /* PlannableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83FA52F1D4ADFDF0042FACC /* PlannableProtocol.swift */; };
 		A8543EAE1D7F17EF002AA33D /* PlanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8543EAD1D7F17EF002AA33D /* PlanController.swift */; };
+		A8543EB11D7F1A9C002AA33D /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8543EB01D7F1A9C002AA33D /* Command.swift */; };
+		A8543EB31D7F1B0B002AA33D /* DownloadCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8543EB21D7F1B0B002AA33D /* DownloadCommand.swift */; };
 		A85F1EDA1D7DD155009EDB13 /* PlanFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85F1ED91D7DD155009EDB13 /* PlanFactory.swift */; };
 		A86232851D70EFAB00A0067D /* PlansTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86232841D70EFAB00A0067D /* PlansTableViewDelegate.swift */; };
 		A8999D9A1D4BA54900B561A3 /* PlannableProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8999D991D4BA54900B561A3 /* PlannableProtocolTests.swift */; };
@@ -57,6 +59,8 @@
 /* Begin PBXFileReference section */
 		A83FA52F1D4ADFDF0042FACC /* PlannableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PlannableProtocol.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A8543EAD1D7F17EF002AA33D /* PlanController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanController.swift; sourceTree = "<group>"; };
+		A8543EB01D7F1A9C002AA33D /* Command.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
+		A8543EB21D7F1B0B002AA33D /* DownloadCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadCommand.swift; sourceTree = "<group>"; };
 		A85F1ED91D7DD155009EDB13 /* PlanFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlanFactory.swift; path = Model/PlanFactory.swift; sourceTree = "<group>"; };
 		A86232841D70EFAB00A0067D /* PlansTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlansTableViewDelegate.swift; sourceTree = "<group>"; };
 		A8999D991D4BA54900B561A3 /* PlannableProtocolTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PlannableProtocolTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -139,6 +143,15 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		A8543EAF1D7F1A53002AA33D /* Command */ = {
+			isa = PBXGroup;
+			children = (
+				A8543EB01D7F1A9C002AA33D /* Command.swift */,
+				A8543EB21D7F1B0B002AA33D /* DownloadCommand.swift */,
+			);
+			path = Command;
+			sourceTree = "<group>";
+		};
 		A8C9C8041D723ACB00278F16 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +212,7 @@
 				AFC2DB171C2F1AAA0091B27F /* AppDelegate.swift */,
 				A8F7550E1D4BEDD600E5D875 /* Storyboards */,
 				AFED56D01D491F240095C0C0 /* Model */,
+				A8543EAF1D7F1A53002AA33D /* Command */,
 				A83F3B351D4A74A900432914 /* Controller */,
 				A8F755101D4BEE7400E5D875 /* Cell */,
 				A83FA52E1D4ADFC40042FACC /* Protocol */,
@@ -423,6 +437,8 @@
 				A86232851D70EFAB00A0067D /* PlansTableViewDelegate.swift in Sources */,
 				A8F755161D4C156F00E5D875 /* DismissModalAnimationController.swift in Sources */,
 				A85F1EDA1D7DD155009EDB13 /* PlanFactory.swift in Sources */,
+				A8543EB11D7F1A9C002AA33D /* Command.swift in Sources */,
+				A8543EB31D7F1B0B002AA33D /* DownloadCommand.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

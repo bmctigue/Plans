@@ -32,8 +32,9 @@ final class PlanController: Plannable, DownloadServicesDelegate {
     }
 
     func downloadPlans(planUrlString: String) {
-        let downloadServices = DownloadServices(delegate: self)
-        downloadServices.downloadWithUrl(plansUrlString, method: "GET")
+        let downloadService = DownloadServices(urlString: plansUrlString, delegate: self)
+        let downloadCommand = DownloadCommand.init(downloadService: downloadService)
+        downloadCommand.execute()
     }
 
     func downLoadFinished(jsonArray: NSArray) {

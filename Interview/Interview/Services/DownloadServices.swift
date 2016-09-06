@@ -12,23 +12,29 @@ protocol DownloadServicesDelegate {
     func downLoadFinished(jsonArray: NSArray)
 }
 
-final class DownloadServices: NSObject {
+protocol DownloadServicesProtocol {
+    func download()
+}
 
+final class DownloadServices: NSObject, DownloadServicesProtocol {
+
+    let urlString: String
     let delegate: DownloadServicesDelegate?
 
-    init(delegate: DownloadServicesDelegate) {
+    init(urlString: String, delegate: DownloadServicesDelegate) {
+        self.urlString = urlString
         self.delegate = delegate
     }
 
-    func request(urlString: String, method: String) -> NSURLRequest {
+    private func request(urlString: String, method: String) -> NSURLRequest {
         let url = NSURL(string:urlString)
         let request = NSMutableURLRequest(URL:url!)
         request.HTTPMethod = method
         return request
     }
 
-    func downloadWithUrl(urlString: String, method: String) {
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request(urlString, method: method)) {
+    func download() {
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request(urlString, method: "GET")) {
             data, response, error in
             guard let data = data else { print(error?.localizedDescription); return }
             do {
