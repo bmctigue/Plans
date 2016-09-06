@@ -20,7 +20,7 @@ extension PlansTableViewDelegate: UITableViewDelegate {
 
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         let cell:PlanCell = cell as! PlanCell
-        let plan = StateController.Items.all[indexPath.row]
+        let plan = PlanController.Items.all[indexPath.row]
         cell.updateCellWithPlan(plan)
     }
 }

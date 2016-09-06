@@ -21,7 +21,7 @@ class PlansTableViewDataSource: NSObject, PlanCellDelegate {
 
     func stepperButtonPressed(stepper: UIStepper, planName:String) {
         plansCountHash = updatePlanSelection(Int(stepper.value), planName: planName, plansCountHash:plansCountHash)
-        let sortedPlanNamesByAmount = StateController.Items.sortedByAmount.map({$0.name})
+        let sortedPlanNamesByAmount = PlanController.Items.sortedByAmount.map({$0.name})
         titleLabel.text = self.tableTitleFromPlanNames(sortedPlanNamesByAmount, plansCountHash: plansCountHash)
     }
 }
@@ -33,7 +33,7 @@ extension PlansTableViewDataSource: UITableViewDataSource, Plannable {
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return StateController.Items.all.count
+        return PlanController.Items.all.count
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

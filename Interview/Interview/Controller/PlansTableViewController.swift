@@ -42,11 +42,11 @@ class PlansTableViewController: UITableViewController, Plannable, ModalDelegate 
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        StateController.sharedInstance.downloadPlans(plansUrlString)
+        PlanController.sharedInstance.downloadPlans(plansUrlString)
     }
 
     func handleRefresh(refreshControl: UIRefreshControl) {
-        StateController.sharedInstance.downloadPlans(plansUrlString)
+        PlanController.sharedInstance.downloadPlans(plansUrlString)
         refreshControl.endRefreshing()
     }
 

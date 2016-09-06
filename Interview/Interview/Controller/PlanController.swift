@@ -1,5 +1,5 @@
 //
-//  StateController.swift
+//  PlanController.swift
 //  Interview
 //
 //  Created by NoDeveloper on 7/27/16.
@@ -12,9 +12,9 @@ let planNotificationKey = "com.tiguer.plansLoadedNotificationKey"
 let plansUrlString = "https://api.myjson.com/bins/5431j"
 let planPricingRegion = 2
 
-final class StateController: Plannable, DownloadServicesDelegate {
+final class PlanController: Plannable, DownloadServicesDelegate {
 
-    static let sharedInstance = StateController()
+    static let sharedInstance = PlanController()
     private init() {}
 
     struct Items {
