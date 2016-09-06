@@ -10,14 +10,14 @@ import Foundation
 
 final class DownloadCommand: CommandProtocol {
 
-    let downloadService: DownloadServicesProtocol
+    let download: DownloadProtocol
 
-    init(downloadService: DownloadServicesProtocol) {
-        self.downloadService = downloadService
+    init(downloadService: DownloadProtocol) {
+        self.download = downloadService
     }
 
     func execute() {
-        downloadService.download()
+        download.download()
     }
 
 }

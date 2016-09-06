@@ -1,5 +1,5 @@
 //
-//  DownloadServices.swift
+//  Download.swift
 //  Interview
 //
 //  Created by NoDeveloper on 8/27/16.
@@ -8,20 +8,20 @@
 
 import Foundation
 
-protocol DownloadServicesDelegate {
+protocol DownloadDelegate {
     func downLoadFinished(jsonArray: NSArray)
 }
 
-protocol DownloadServicesProtocol {
+protocol DownloadProtocol {
     func download()
 }
 
-final class DownloadServices: NSObject, DownloadServicesProtocol {
+final class Download: NSObject, DownloadProtocol {
 
     let urlString: String
-    let delegate: DownloadServicesDelegate?
+    let delegate: DownloadDelegate?
 
-    init(urlString: String, delegate: DownloadServicesDelegate) {
+    init(urlString: String, delegate: DownloadDelegate) {
         self.urlString = urlString
         self.delegate = delegate
     }

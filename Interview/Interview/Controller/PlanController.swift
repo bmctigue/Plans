@@ -12,7 +12,7 @@ let planNotificationKey = "com.tiguer.plansLoadedNotificationKey"
 let plansUrlString = "https://api.myjson.com/bins/5431j"
 let planPricingRegion = 2
 
-final class PlanController: Plannable, DownloadServicesDelegate {
+final class PlanController: Plannable, DownloadDelegate {
 
     static let sharedInstance = PlanController()
     private init() {}
@@ -32,8 +32,8 @@ final class PlanController: Plannable, DownloadServicesDelegate {
     }
 
     func downloadPlans(planUrlString: String) {
-        let downloadService = DownloadServices(urlString: plansUrlString, delegate: self)
-        let downloadCommand = DownloadCommand.init(downloadService: downloadService)
+        let download = DownloadFactory.sharedInstance.create(plansUrlString, delegate: self)
+        let downloadCommand = DownloadCommand.init(downloadService: download)
         downloadCommand.execute()
     }
 

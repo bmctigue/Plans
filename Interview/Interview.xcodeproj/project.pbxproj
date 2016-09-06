@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A83924A61D7F63A000CD28DA /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83924A51D7F63A000CD28DA /* Download.swift */; };
+		A83924A81D7F644900CD28DA /* DownloadFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83924A71D7F644800CD28DA /* DownloadFactory.swift */; };
 		A83FA5301D4ADFDF0042FACC /* PlannableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83FA52F1D4ADFDF0042FACC /* PlannableProtocol.swift */; };
 		A8543EAE1D7F17EF002AA33D /* PlanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8543EAD1D7F17EF002AA33D /* PlanController.swift */; };
 		A8543EB11D7F1A9C002AA33D /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8543EB01D7F1A9C002AA33D /* Command.swift */; };
@@ -15,7 +17,6 @@
 		A86232851D70EFAB00A0067D /* PlansTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86232841D70EFAB00A0067D /* PlansTableViewDelegate.swift */; };
 		A8999D9A1D4BA54900B561A3 /* PlannableProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8999D991D4BA54900B561A3 /* PlannableProtocolTests.swift */; };
 		A8B764AA1D70EAEB008E29FC /* PlansTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B764A91D70EAEB008E29FC /* PlansTransitioningDelegate.swift */; };
-		A8C9C8061D723AE200278F16 /* DownloadServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C9C8051D723AE200278F16 /* DownloadServices.swift */; };
 		A8D5FDCF1D500F6E00E02F78 /* PlansTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D5FDCE1D500F6E00E02F78 /* PlansTableViewController.swift */; };
 		A8D5FDD11D500F8B00E02F78 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D5FDD01D500F8B00E02F78 /* ModalViewController.swift */; };
 		A8EB5E411D70DFA3006D81CD /* PlansTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8EB5E401D70DFA3006D81CD /* PlansTableViewDataSource.swift */; };
@@ -57,6 +58,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A83924A51D7F63A000CD28DA /* Download.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
+		A83924A71D7F644800CD28DA /* DownloadFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadFactory.swift; sourceTree = "<group>"; };
 		A83FA52F1D4ADFDF0042FACC /* PlannableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PlannableProtocol.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A8543EAD1D7F17EF002AA33D /* PlanController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanController.swift; sourceTree = "<group>"; };
 		A8543EB01D7F1A9C002AA33D /* Command.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
@@ -65,7 +68,6 @@
 		A86232841D70EFAB00A0067D /* PlansTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlansTableViewDelegate.swift; sourceTree = "<group>"; };
 		A8999D991D4BA54900B561A3 /* PlannableProtocolTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PlannableProtocolTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A8B764A91D70EAEB008E29FC /* PlansTransitioningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlansTransitioningDelegate.swift; sourceTree = "<group>"; };
-		A8C9C8051D723AE200278F16 /* DownloadServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadServices.swift; sourceTree = "<group>"; };
 		A8D5FDCE1D500F6E00E02F78 /* PlansTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PlansTableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A8D5FDD01D500F8B00E02F78 /* ModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		A8EB5E401D70DFA3006D81CD /* PlansTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlansTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -155,7 +157,8 @@
 		A8C9C8041D723ACB00278F16 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				A8C9C8051D723AE200278F16 /* DownloadServices.swift */,
+				A83924A51D7F63A000CD28DA /* Download.swift */,
+				A83924A71D7F644800CD28DA /* DownloadFactory.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -428,12 +431,13 @@
 				AFC2DB181C2F1AAA0091B27F /* AppDelegate.swift in Sources */,
 				AFED56CA1D491F0D0095C0C0 /* Mapper.swift in Sources */,
 				AFED56D21D491F470095C0C0 /* Plan.swift in Sources */,
+				A83924A61D7F63A000CD28DA /* Download.swift in Sources */,
 				A8EB5E411D70DFA3006D81CD /* PlansTableViewDataSource.swift in Sources */,
+				A83924A81D7F644900CD28DA /* DownloadFactory.swift in Sources */,
 				A8543EAE1D7F17EF002AA33D /* PlanController.swift in Sources */,
 				AFED56CB1D491F0D0095C0C0 /* MapperError.swift in Sources */,
 				AFED56CD1D491F0D0095C0C0 /* NSURL+Convertible.swift in Sources */,
 				AFED56C71D491F0D0095C0C0 /* Convertible.swift in Sources */,
-				A8C9C8061D723AE200278F16 /* DownloadServices.swift in Sources */,
 				A86232851D70EFAB00A0067D /* PlansTableViewDelegate.swift in Sources */,
 				A8F755161D4C156F00E5D875 /* DismissModalAnimationController.swift in Sources */,
 				A85F1EDA1D7DD155009EDB13 /* PlanFactory.swift in Sources */,
