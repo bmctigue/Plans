@@ -20,7 +20,7 @@ class PresentModalAnimationController: NSObject, UIViewControllerAnimatedTransit
         let containerView = transitionContext.containerView()
         let bounds = UIScreen.mainScreen().bounds
         toViewController.view.frame = finalFrameForVC.offsetBy(dx: 0, dy: bounds.size.height)
-        containerView!.addSubview(toViewController.view)
+        containerView.addSubview(toViewController.view)
 
         UIView.animateWithDuration(transitionDuration(transitionContext), animations: {
             toViewController.view.frame = finalFrameForVC
